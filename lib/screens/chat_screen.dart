@@ -13,7 +13,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFF2D3D47),
           leading: IconButton(
@@ -81,18 +82,35 @@ class ChatScreen extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: ListView.builder(
-                  reverse: true,
-                  itemCount: 20,
-                  itemBuilder: (_, index) => ListTile(
-                    title: Text("Message $index"),
-                  ),
+                child: ListView(
+                  reverse: false,
+                  padding: const EdgeInsets.all(8),
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
+                        margin: const EdgeInsets.symmetric(vertical: 4),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF005C4B),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Text(
+                          message,
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const Divider(height: 1),
               const ChatInputBar(),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

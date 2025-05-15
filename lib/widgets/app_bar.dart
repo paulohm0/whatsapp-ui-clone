@@ -25,7 +25,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 const Text(
                   "Whatsapp",
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 24,
                     fontWeight: FontWeight.w700,
                     color: Colors.grey,
                   ),
@@ -53,11 +53,12 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 Flexible(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Colors.grey.shade600,
                       borderRadius: BorderRadius.circular(24),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: const TextField(
+                      textAlignVertical: TextAlignVertical(y: 0.3),
                       decoration: InputDecoration(
                         hintText: "Search...",
                         hintStyle:
